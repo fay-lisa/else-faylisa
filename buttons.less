@@ -1,0 +1,163 @@
+//Copyright 2016 Ayogo Health Inc.
+
+
+// ----------------- Structure ALL buttons use  -------------------- //
+
+// all use flex internally
+// NOTE that you can no longer just pull a <button> tag and have it auto styled.
+// Add one of the four classes to define the color and layout of your button/button set.
+// to accomodate Firefox not recognizing flex on a button, flex is put on the span surrounding the content.
+// ---------------------------------
+button {
+  outline: 0;
+  margin: @button-margin 0;
+  padding: @button-base-px;
+  //white-space: nowrap; // TODO: testing removing
+  border: 1px solid transparent; // so size doesn't differ from those with, and without
+  width: 100%; // default
+  cursor: pointer;
+  position: relative;
+
+  a, span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } // sets the flex on the span, or a-tag, as it requires this when svg is in the button,
+    // in safari
+    // when an svg is present, surround the content and svg with a span. should look something like:
+    // <button>
+    //   <span>
+    //    <svg>
+    //    <p> or <span>
+    //   </span>
+    // </button>
+
+  svg {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  p {
+    width: auto;
+    margin: 0;
+  }
+
+  &.disabled, &[disabled] {
+    cursor: default;
+  }
+}
+
+// ----------------- Button classes, inputs that use button structure  -------------------- //
+
+// if necessary, any structural changes to these.
+.primary-set,
+.secondary-set,
+.tertiary-set,
+.hollow-set,
+input[type="submit"],
+button [type="submit"]  {
+  &:extend(button all);
+}
+
+.secondary-set {
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.tertiary-set {
+  margin: 0;
+}
+
+.hollow-set {
+  span {
+    justify-content: flex-start;
+  }
+
+  svg {
+    margin-right: 0;
+    width: 30px;
+    height: 30px;
+    // to match that of the dashboard task list
+  }
+}
+// ----------------- a-tags that look like buttons  -------------------- //
+
+// replaces btn-txt-link
+// -----------------------------
+.a-tag-button {
+  &:extend(button all); // pulls in the structure of button
+  display: block;
+}
+
+
+// ----------------- containers to be used ONLY around button sets  -------------------- //
+
+// mixin, or used straight up in html, that holds multiple buttons side by side,
+// without altering the buttons within by default. Will not change layout of just one button
+// NOTE: the add-on classes will change style and layout, so we only need one parent container class app wide.
+
+// ----------------- Default container for 1, 2 or 3 buttons with space around -------------------- //
+
+// 1, 2 or 3 buttons can be used in here. always call this first
+.multi-button {
+  width: 100%; // for IE
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+
+// we can put two buttons in there without defining width, and it will automatically space them out.
+// the margin allows for a bit of breathing room
+  button {
+
+    &:nth-child(2) {
+      margin-left: @button-margin; // putting it here, and not on the first one, prevents an unnecessary margin showing up when there's only one button in the container dynamically.
+    }
+  }
+
+  // now we add tack-on classes for use in html. this is to be put alongside the 'multi-button' class in the parent, NOT on the buttons themselves.
+
+// ----------------- add-on class: 1/2 width buttons  -------------------- //
+
+// creating a half width button. NOTE that by default, multi-button will position two default buttons side by side. this is for use when there's ONE button in the container that needs to be smaller than 100%
+// NOTE! this goes on the button itself. unless you want the container to be half width.
+  .half-width {
+    width: 50%; // for IE
+    flex: 0 0 50%;
+
+    // taking the default margins off.
+    &:first-of-type,
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+// ----------------- Pushing a button to the right  -------------------- //
+
+// positioning a half-width or auto width button to the right.
+// NOTE: buttons are left-aligned by default. no need to define anything to make them 50% *and* left aligned.
+  &.push-right {
+    //float: right; // for IE
+    justify-content: flex-end;
+  }
+
+// ----------------- Add on class for 2, 3+ buttons with no separation  -------------------- //
+
+// these are buttons that butt up against one another with no space between
+  &.no-space {
+
+    // second button in set
+    button:nth-child(2) {
+      border-left: 0; // to take out the border
+      margin: 0; // takes out the default margin
+    }
+
+    // third button in set
+    button:nth-child(3) {
+      border-left: 0; // to take out the border
+    }
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>faylisa.com</title>
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Lora|Slabo+27px|Qwigley:300,400" rel="stylesheet">
+  <!-- <script src="https://use.fontawesome.com/cc309756c2.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script>
+  function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+  }
+
+  function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+  }
+  </script>
+  <script>
+      // Wait for window load
+      $(window).load(function() {
+        // Animate loader off screen
+        $("#loader").fadeOut(800);
+        setTimeout(function () {
+           $("header").removeClass('closed');
+  }, 6500);
+
+    });
+  </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <header id='nav-bar' class="closed">
+    <div id="topnav">
+      <div class="logo">
+        <a href="/">
+          <img src="images/logo.png" alt="faylisa.com: web designer, css poet">
+        </a>
+      </div>
+
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">art</a>
+          <a href="#">css</a>
+          <a href="#">about</a>
+          <a href="#">contact</a>
+        </div>
+      </div>
+
+      <span class="mobile-menu-btn" onclick="openNav()">&#9776;</span>
+    </div>
+  </header>
+
+  <section class="home-intro">
+    <div class="block-animation">
+      <h1>My name is <span class="emphasis">Fay-Lisa</span>.</h1>
+      <!-- <p>I design websites, and build CSS + HTML frameworks for award-winning apps.</p> -->
+      <p>I make the internet a better place to be.</p>
+      <p>I <span class="emphasis">LOVE</span> what I do. So I work hard to do it well.</p>
+    </div><!-- ends block animation -->
+
+    <!-- animation that plays on tablet+
+    <div class="home-animation">
+      <div>
+        <p class="first">My name is <span class="emphasis">Fay-Lisa</span>.</p>
+        </div>
+        <div>
+        <p class="second">I design websites,</p>
+        </div>
+        <div>
+          <p class="third">and build CSS + HTML frameworks</p>
+        </div>
+        <div>
+          <p class="fourth">for award-winning apps.</p>
+        </div>
+        <div><!-- to create a link break, without extra css --
+        <p class="fifth">I <span class="emphasis">LOVE</span> what I do,</p>
+        <p class="sixth">so I work hard to do it well.</p>
+        </div>
+      </div> ends home-animation -->
+
+      <!-- starts the cta -->
+      <div class="home-cta">
+        <div class="cta-box">
+          <a href="/">design</a>
+        </div>
+
+        <div class="cta-box">
+          <a href="/">code</a>
+        </div>
+
+        <div class="imum">
+          <img src="images/placeholder.png">
+        </div>
+      </div>
+    </section>
+
+    <section class="home-details">
+      <h2>Alright enough nonsense what is it you do, woman?</h2>
+
+      <article>
+      <div class="card">
+        <h3>I write css</h3>
+        <p>I speak it fluently. I love it, and how it evolves, like I love my mother tongue.</p>
+        <p>I've built custom frameworks for award-winning apps, a reusable app framework to whitelabel
+          and rebrand, and for WordPress themes. </p>
+        <p>I've been at this since 1997. CSS is poetry, it's oxygen, it's love and it's the vessel through which I can make the world a better place. There is nothing I would rather be doing.</p>
+      </div>
+      <div class="card">
+        <h3>I design</h3>
+        <p>I studied psychology to understand how the mind works. I use this to understand how the mind sees the
+          tools I build.</p>
+          <p>I'm fascinated by how colour changes a mood, instills trust faster than we can grasp what it's doing.
+            I love the feel of shapes, of depth and soul that goes into thoughtful design.</p>
+            <p>Design is love of art, and form, of function and of reaching out and touching someone you've never met.</p>
+      </div>
+      <div class="card">
+        <h3>I bridge gaps</h3>
+        <p>In all but one company I've worked for in the last 12 years, I have been the bridge that spans design, and programming. </p>
+        <p>I understand how designers think because I am one. But I code too. So I understand programmer's priorities and what they're up against. </p>
+        <p>I can take a designer's feeling, carry it carefully through css and html to the programmers to breathe action into it.</p>
+        <p>I can be the bridge that unites the clans! (I'm so sorry, the Braveheart slipped out there)
+      </div>
+      </article>
+    </section>
+  </body>
+</html>

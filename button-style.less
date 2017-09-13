@@ -1,0 +1,237 @@
+//Copyright 2016 Ayogo Health Inc.
+
+// ----------------- button colors  -------------------- //
+
+// primary button colors
+// ----------------------
+@button-primary: @primary-color; // used for bkg
+@button-primary-txt: @quaternary-txt;
+@button-primary-svg: @secondary-color;
+@button-primary-active: @primary-active;
+@button-primary-border: transparent; // add if border ends up being used
+
+// secondary button colors
+// ----------------------
+@button-secondary: @secondary-color; // used for bkg
+@button-secondary-txt: @secondary-txt; // used for button txt
+@button-secondary-svg: @secondary-svg;
+@button-secondary-active: @secondary-active;
+@button-secondary-border: @primary-color;
+
+// third set of buttons
+// ----------------------
+@button-tertiary: @tertiary-bkg;
+@button-tertiary-txt: @tertiary-txt;
+@button-tertiary-svg: @tertiary-svg;
+@button-tertiary-active: @primary-active;
+@button-tertiary-active-txt: @tertiary-active-txt;
+@button-tertiary-active-svg: @tertiary-active-svg;
+@button-tertiary-border: @tertiary-border;
+
+// new button style: hollow.
+@button-hollow: @secondary-color;
+@button-hollow-txt: @primary-txt;
+@button-hollow-svg: @primary-txt;
+@button-hollow-active: @secondary-bkg;
+@button-hollow-active-txt: inherit;
+@button-hollow-border: @primary-border;
+
+// and set up text link colors
+// ----------------------
+@button-txt-link: @primary-color;
+@button-txt-link-active: @primary-color-child;
+
+// ----------------- used below  -------------------- //
+
+
+// ----------------- default text links used in paragraphs  -------------------- //
+
+a {
+  color: @button-txt-link;
+  text-decoration: none;
+  background:transparent;
+
+   &:active, &.active {
+    color: @button-txt-link-active;
+    outline: 0;
+  }
+}
+
+// when inside a list element, we recolor them. applies to knowledge center
+li a {
+  color: @primary-txt;
+}
+
+
+// ----------------- Plain text link buttons + a-tags that look like buttons  -------------------- //
+
+// for buttons that need to look like a plain link
+// structure pulled in, in button.less file
+// you can tack-on primary-set, secondary-set, tertiary-set to style; for a-tags that need to look like a standard button
+.a-tag-button {
+  text-decoration: underline;
+  color: @button-txt-link;
+  text-align: center;
+
+  &:active, &.active, &:focus {
+    color: @button-txt-link-active;
+    background: none; // by default. tack on classes below will over-write this
+  }
+}
+
+
+
+// ----------------- All <button> tags  -------------------- //
+// note that this is now uncolored by default. any new <button> tags will need one of the 4 classes.
+button {
+  .font-body; // 17px
+  background: transparent;
+  border-radius: @radius-default; // so all elements inherit this, nixing the possibility of differing border-radius on different classes
+  cursor: pointer;
+
+  // so user has some action when button is tapped
+  &:active, &.active {
+    background: ; // should have a default? testing.
+    color: @button-primary-txt;
+  }
+
+  // sets the focus state for everything using <button>
+  // TODO: if we want to use tabindex, we need to add a :focus state.
+  // and ay-focus is not currently working with tabindex. putting off til polish
+  &.ay-focus {
+    box-shadow:0px 0px 0px 3px @global-focus-border inset;
+  }
+
+  // default disabled states when the button has no other styling
+  &.disabled, &[disabled] {
+    color: @disabled-txt;
+    fill: @disabled-svg;
+
+    &:active, &.active, &.ay-focus {
+      color: @disabled-txt;
+    }
+  }
+
+  // for those with links inside: NOTE: try and get rid of these
+  a {
+    color: @button-secondary-txt;
+
+    &:active, &.active, &:focus {
+      color: @button-secondary-txt
+    }
+  }
+}
+
+// ----------------- Primary button + submit button  -------------------- //
+
+// this can be pulled in with &:extend wherever needed, or used straight up in html
+input[type="submit"],
+button [type="submit"],
+.primary-set {
+  fill: @button-primary-txt;
+  background: @button-primary;
+  color: @button-primary-txt;
+  border: 1px solid transparent; // because some buttons are side by side with those with borders
+  text-decoration: none;
+
+  // so user has some action when button is tapped
+  &:active, &.active {
+    background: @button-primary-active;
+    color: @button-primary-txt;
+  }
+
+  // for disabled states
+  &.disabled, &[disabled] {
+    &:extend(.disabled-state);
+
+    &:active, &.active, &.ay-focus {
+      background: @disabled-bkg;
+      color: @disabled-txt;
+    }
+  }
+}
+
+
+// ----------------- Secondary button colors  -------------------- //
+
+// this can be pulled in with &:extend wherever needed, or used straight up in html
+.secondary-set {
+  color: @button-secondary-txt;
+  background: @button-secondary;
+  border: 1px solid @button-secondary-border;
+  fill: @button-secondary-svg;
+  text-decoration: none;
+
+  // because a few buttons still have a-tags in them;
+  a {
+    color: @button-secondary-txt;
+  }
+
+  &:active, &.active, &.selected,
+  &:active a, &.active a {
+    background: @button-secondary-active;
+    color: @button-primary-txt;
+    fill: @button-primary-txt;
+  }
+
+  // inherits the ay-focus from button by default
+
+  // for disabled states
+  &.disabled, &[disabled] {
+    &:extend(.disabled-state);
+  }
+}
+
+// ----------------- Tertiary (third) button colors  -------------------- //
+
+// stucturally different from primary and secondary.
+.tertiary-set {
+  background: @button-tertiary;
+  color: @button-tertiary-txt;
+  border-radius: 0;
+  border: 1px solid @button-tertiary-border;
+  .font-button; // 15px
+  font-weight: @font-weight-medium;
+  text-transform: uppercase;
+  fill: @button-tertiary-svg;
+  text-decoration: none;
+
+  &:active, &.active, &:focus {
+    background: @button-tertiary-active;
+    color: @button-tertiary-active-txt;
+    fill: @button-tertiary-active-svg;
+  }
+
+  // for disabled states
+  &.disabled, &[disabled] {
+    &:extend(.disabled-state);
+  }
+}
+
+// hollow button set. used extensively on settings page.
+.hollow-set {
+  color: @button-hollow-txt;
+  background: @button-hollow;
+  border: 1px solid @button-hollow-border;
+  fill: @button-hollow-txt;
+  text-decoration: none;
+
+  &:active, &.active, &.selected,
+  &:active a, &.active a {
+    background: @button-hollow-active;
+    color: @button-hollow-txt;
+    fill: @button-hollow-txt;
+  }
+
+  // for disabled states
+  &.disabled, &[disabled] {
+    &:extend(.disabled-state);
+  }
+}
+// forcing the text color on the primary-set disabled state, as we're recoloring it.
+@quiz-btn-disabled-txt: @secondary-color;  //white
+.btn-quiz-chosen, .btn-quiz-chosen[disabled], .btn-quiz-chosen.disabled {
+  &[disabled], &.disabled { // without calling this, though it seems like it's repeating itself, the buttons will inherit the default disabled color from primary-set. We have to call it like this for specificity.
+    color: @quiz-btn-disabled-txt;
+  }
+}

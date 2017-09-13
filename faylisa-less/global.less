@@ -1,0 +1,34 @@
+
+// tricks the bkg into being a 'gradient', setting up the top box for the text without an extra div.
+body {
+  min-height: 100vh;
+  //background: linear-gradient(to bottom, #fff 0%,  #fff 45%, #fdfbfb 45%, #fdfbfb 100%);
+  background: @primary-bkg url(images/body-top.png) center top no-repeat;
+  background-attachment: fixed;
+
+}
+
+// so each section takes up the viewport.
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  position: relative;
+  max-width: 1024px;
+  flex: 1 1 100%;
+  margin: 8% auto 0;
+  padding: 10px;
+
+  @media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 667px)
+  and (orientation : landscape) {
+    margin-top: auto;
+  }
+  @media all and (min-width: 767px) {
+    justify-content: center;
+     margin-top: auto;
+  }
+}

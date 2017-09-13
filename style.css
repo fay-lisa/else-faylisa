@@ -1,0 +1,452 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* HTML5 display-role reset for older browsers */
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+ol li,
+ul li {
+  display: block;
+}
+header,
+p,
+section,
+footer {
+  width: 100%;
+}
+img,
+object,
+embed,
+video {
+  max-width: 100%;
+  height: auto;
+}
+.flex-parent {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+body {
+  font-size: 17px;
+  font-family: 'Raleway', serif;
+  color: #605f5f;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  width: 100%;
+  margin: 1em 0;
+}
+h1 {
+  font-size: 2em;
+  font-weight: 500;
+}
+h2 {
+  font-size: 1.7em;
+  text-align: left;
+}
+h3 {
+  font-size: 1.3em;
+}
+p {
+  margin: 0.5em 0;
+  line-height: 1.2em;
+}
+body {
+  min-height: 100vh;
+  background: #ffffff url(images/body-top.png) center top no-repeat;
+  background-attachment: fixed;
+}
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  position: relative;
+  max-width: 1024px;
+  flex: 1 1 100%;
+  margin: 8% auto 0;
+  padding: 10px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
+  section {
+    margin-top: auto;
+  }
+}
+@media all and (min-width: 767px) {
+  section {
+    justify-content: center;
+    margin-top: auto;
+  }
+}
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(224, 220, 209, 0.3), rgba(224, 220, 209, 0.3) 3em, transparent 3em, #c9c9c9 3em, transparent 3.06em);
+  color: black;
+  z-index: 1;
+  transition-duration: 1s;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header.closed {
+  top: -160px;
+  z-index: 1;
+  transition-duration: 1s;
+}
+header a {
+  text-transform: uppercase;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  text-decoration: none;
+  text-align: right;
+}
+#topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.logo {
+  flex: 0 0 70%;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
+  .logo {
+    flex: 0 0 40%;
+  }
+}
+@media all and (min-width: 767px) {
+  .logo {
+    flex: 1 1 auto;
+  }
+}
+.mobile-menu-btn {
+  font-size: 2em;
+  cursor: pointer;
+  padding: 6px 10px;
+  align-self: flex-start;
+}
+@media all and (min-width: 767px) {
+  .mobile-menu-btn {
+    justify-content: flex-end;
+  }
+}
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+}
+.overlay-content {
+  width: 100%;
+}
+.overlay a {
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 60px;
+}
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 0;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* ----- animation container. ----- */
+.block-animation {
+  font-family: 'Slabo 27px', serif;
+  font-size: 1.3em;
+  font-weight: 300;
+  text-align: center;
+  padding: 4em 0 1em;
+  /* ----- now we set up the transparency and animation for individual elements ----- */
+  /* -----  recolors some of the text ----- */
+}
+.block-animation p,
+.block-animation h1 {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0s forwards;
+}
+.block-animation h1 {
+  animation-delay: 2s;
+  font-size: 1.3em;
+  margin: 0;
+}
+.block-animation p:nth-of-type(1) {
+  animation-delay: 3.5s;
+}
+.block-animation p:nth-of-type(2) {
+  animation-delay: 5s;
+}
+.block-animation .emphasis {
+  color: #fb6e67;
+}
+/* ----- sets up the calls to action ----- */
+.home-cta {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  /* ----- animates the div holding Imum, sets the opacity for all ----- */
+  /* ----- tells Imum where to be ----- */
+  /* ----- now we set up the home page calls to action ----- */
+}
+@media all and (min-width: 767px) {
+  .home-cta {
+    justify-content: center;
+  }
+}
+.home-cta div {
+  animation: fadeIn 1s ease-in-out 0s forwards;
+  opacity: 0;
+  animation-delay: 0s;
+}
+.home-cta .imum {
+  flex: 0 0 auto;
+  order: 2;
+  text-align: center;
+  /* ----- tells Imum how large to be ----- */
+}
+.home-cta .imum img {
+  width: 200px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+  .home-cta .imum {
+    flex: 1 1 100%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  .home-cta .imum {
+    order: 1;
+  }
+}
+.home-cta .cta-box {
+  border: 1px solid #E3DFD9;
+  padding: 20px;
+  width: 35%;
+  animation-delay: 7.7s;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 1023px) {
+  .home-cta .cta-box {
+    width: 50%;
+    padding: 10px;
+  }
+}
+.home-cta .cta-box:nth-of-type(1) {
+  font-family: 'Qwigley', cursive;
+  font-size: 65px;
+  order: 2;
+  border-right: 0;
+}
+.home-cta .cta-box:nth-of-type(2) {
+  font-family: 'Slabo 27px', serif;
+  font-size: 35px;
+  order: 3;
+  border-left: 0;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 1023px) {
+  .home-cta .cta-box:nth-of-type(2) {
+    order: 2;
+    border-left: 1px solid #E3DFD9;
+  }
+}
+.home-cta .cta-box a {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s linear;
+}
+.home-cta .cta-box a:hover,
+.home-cta .cta-box a:focus {
+  background: #d8d2ca;
+  color: white;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.home-cta .cta-box:last-of-type a:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: #c1dedf;
+}
+/* ---------- second section on the home page ---------- */
+.home-details {
+  justify-content: flex-start;
+}
+.home-details h2 {
+  text-align: center;
+}
+.home-details article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2%;
+}
+.home-details .card {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5em;
+}
+.home-details .card h3 {
+  text-align: center;
+}
