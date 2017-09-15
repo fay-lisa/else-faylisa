@@ -158,12 +158,10 @@ section {
   justify-content: space-around;
   flex-direction: column;
   position: relative;
-  max-width: 1024px;
-  flex: 1 1 100%;
-  margin: 8% auto 0;
+  margin: 20% auto 0;
   padding: 10px;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (orientation: landscape) {
   section {
     margin-top: auto;
   }
@@ -171,7 +169,7 @@ section {
 @media all and (min-width: 767px) {
   section {
     justify-content: center;
-    margin-top: auto;
+    margin-top: 0;
   }
 }
 header {
@@ -370,7 +368,7 @@ header a {
 .home-cta .imum img {
   width: 200px;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
   .home-cta .imum {
     flex: 1 1 100%;
   }
@@ -401,13 +399,13 @@ header a {
 .home-cta .cta-box:nth-of-type(2) {
   font-family: 'Slabo 27px', serif;
   font-size: 35px;
-  order: 3;
-  border-left: 0;
+  order: 2;
+  border-left: 1px solid #E3DFD9;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 1023px) {
+@media only screen and (min-device-width: 1023px) {
   .home-cta .cta-box:nth-of-type(2) {
-    order: 2;
-    border-left: 1px solid #E3DFD9;
+    order: 3;
+    border-left: 0;
   }
 }
 .home-cta .cta-box a {
@@ -439,13 +437,25 @@ header a {
   text-align: center;
 }
 .home-details article {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media only screen and (min-device-width: 1024px) {
+  .home-details article {
+    flex-direction: row;
+  }
 }
 .home-details .card {
   background: rgba(0, 0, 0, 0.2);
   padding: 1.5em;
+  flex: 0 0 100%;
+  margin: 0.5em 0;
+}
+@media only screen and (min-device-width: 667px) {
+  .home-details .card {
+    flex: 0 0 33%;
+  }
 }
 .home-details .card h3 {
   text-align: center;
