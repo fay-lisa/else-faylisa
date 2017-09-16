@@ -10,6 +10,7 @@
   p, h1 {
     opacity: 0; // make them all hidden to start with.
     animation: fadeIn 1s ease-in-out 0s forwards;
+    padding: 0.25em 0;
   }
 
   h1 {
@@ -151,20 +152,25 @@
     }
   }
 
-  .card {
-    background: rgba(0,0,0,0.2);
-    padding: 1.5em;
+  .cardholder {
     flex: 0 0 100%;
-    margin: 0.5em 0;
 
     //landscape iphone 6+
     @media only screen
     and (min-device-width: 667px) {
-      flex: 0 0 33%;
+      flex: 0 0 30%;
     }
+  }
 
-    h3 {
-      text-align: center;
+  .card {
+    margin: 0.5em 0;
+
+    a {
+      border: 1px solid #E3DFD9;
+
+      h3 {
+        margin: 0;
+      }
     }
   }
 }

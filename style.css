@@ -118,7 +118,7 @@ video {
 }
 body {
   font-size: 17px;
-  font-family: 'Raleway', serif;
+  font-family: 'Khula', sans-serif;
   color: #605f5f;
 }
 h1,
@@ -130,6 +130,7 @@ h6 {
   font-weight: 300;
   width: 100%;
   margin: 1em 0;
+  font-family: 'Slabo 27px', serif;
 }
 h1 {
   font-size: 2em;
@@ -143,7 +144,7 @@ h3 {
   font-size: 1.3em;
 }
 p {
-  margin: 0.5em 0;
+  padding: 0.5em 0;
   line-height: 1.2em;
 }
 body {
@@ -202,18 +203,51 @@ header a {
   align-items: center;
   width: 100%;
 }
-.logo {
+.logo,
+.square-logo {
   flex: 0 0 70%;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
-  .logo {
+  .logo,
+  .square-logo {
     flex: 0 0 40%;
   }
 }
 @media all and (min-width: 767px) {
-  .logo {
+  .logo,
+  .square-logo {
     flex: 1 1 auto;
   }
+}
+.square-logo a {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 5%;
+  color: pink;
+  padding: 15px;
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.square-logo h1,
+.square-logo h2 {
+  transform: rotate(1deg);
+  margin: 0;
+}
+.square-logo h1 {
+  letter-spacing: -0.04em;
+  font-weight: 300;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Oswald', sans-serif;
+}
+.square-logo h1 span {
+  letter-spacing: -0.07em;
+}
+.square-logo h2 {
+  font-size: 0.8em;
+  font-family: 'Oswald', sans-serif;
+  text-align: right;
+  color: white;
 }
 .mobile-menu-btn {
   font-size: 2em;
@@ -270,6 +304,19 @@ header a {
     right: 0;
   }
 }
+a {
+  text-decoration: none;
+}
+.primary-button {
+  display: block;
+  color: #000000;
+  padding: 1em;
+  text-align: center;
+}
+.primary-button.blue {
+  background: #c1dedf;
+  color: #ffffff;
+}
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -322,6 +369,7 @@ header a {
 .block-animation h1 {
   opacity: 0;
   animation: fadeIn 1s ease-in-out 0s forwards;
+  padding: 0.25em 0;
 }
 .block-animation h1 {
   animation-delay: 2s;
@@ -446,17 +494,20 @@ header a {
     flex-direction: row;
   }
 }
-.home-details .card {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 1.5em;
+.home-details .cardholder {
   flex: 0 0 100%;
-  margin: 0.5em 0;
 }
 @media only screen and (min-device-width: 667px) {
-  .home-details .card {
-    flex: 0 0 33%;
+  .home-details .cardholder {
+    flex: 0 0 30%;
   }
 }
-.home-details .card h3 {
-  text-align: center;
+.home-details .card {
+  margin: 0.5em 0;
+}
+.home-details .card a {
+  border: 1px solid #E3DFD9;
+}
+.home-details .card a h3 {
+  margin: 0;
 }
