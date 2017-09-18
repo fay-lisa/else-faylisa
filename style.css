@@ -142,10 +142,14 @@ h2 {
 }
 h3 {
   font-size: 1.3em;
+  text-align: center;
 }
 p {
   padding: 0.5em 0;
   line-height: 1.2em;
+}
+.yellow-emphasis {
+  color: #f9b109;
 }
 body {
   min-height: 100vh;
@@ -153,32 +157,105 @@ body {
   background-attachment: fixed;
 }
 section {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
   position: relative;
-  margin: 20% auto 0;
   padding: 10px;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (orientation: landscape) {
-  section {
-    margin-top: auto;
+section.home-intro {
+  min-height: 100vh;
+}
+article {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-device-width: 1024px) {
+  article {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 90%;
   }
 }
+.cardholder {
+  flex: 0 0 31%;
+  border: 1px solid #E3DFD9;
+  margin: 7px 0;
+  cursor: default;
+}
+.cardholder a {
+  color: #605f5f;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cardholder:focus,
+.cardholder:hover {
+  transform: rotate(-1deg);
+  transition: all 0.3s;
+}
+.cardholder:focus h3,
+.cardholder:hover h3 {
+  transform: rotate(1deg);
+  transition: all 0.3s;
+}
+.card {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.card h3 {
+  margin: 0;
+}
+footer {
+  width: 100%;
+  background: rgba(224, 220, 209, 0.3);
+  border-top: #c9c9c9;
+  font-size: 0.6em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1em 5%;
+}
 @media all and (min-width: 767px) {
-  section {
-    justify-content: center;
-    margin-top: 0;
+  footer {
+    flex-direction: row;
   }
+}
+footer ul {
+  width: 100%;
+}
+@media all and (min-width: 767px) {
+  footer ul {
+    width: auto;
+  }
+}
+footer ul li {
+  display: block;
+  padding: 10px 7px;
+  text-align: center;
+  background: rgba(224, 220, 209, 0.5);
+  margin: 4px 0;
+}
+@media all and (min-width: 767px) {
+  footer ul li {
+    display: inline;
+    padding: 0 7px;
+    background: transparent;
+    margin: 0;
+  }
+}
+footer ul li a {
+  color: #fb6e67;
 }
 header {
   position: fixed;
-  top: 0px;
+  bottom: 0px;
   width: 100%;
-  background-image: linear-gradient(to bottom, rgba(224, 220, 209, 0.3), rgba(224, 220, 209, 0.3) 3em, transparent 3em, #c9c9c9 3em, transparent 3.06em);
-  color: black;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 3.5em, transparent 3.5em, #c9c9c9 3.5em, transparent 3.06em);
+  color: pink;
   z-index: 1;
   transition-duration: 1s;
   padding: 0 10px;
@@ -187,9 +264,22 @@ header {
   align-items: flex-start;
 }
 header.closed {
-  top: -160px;
+  bottom: -160px;
   z-index: 1;
   transition-duration: 1s;
+}
+@media screen and (min-width: 767px) {
+  header.closed {
+    top: -160px;
+  }
+}
+@media all and (min-width: 767px) {
+  header {
+    top: 0;
+    bottom: auto;
+    background-image: linear-gradient(to bottom, rgba(224, 220, 209, 0.3), rgba(224, 220, 209, 0.3) 3em, transparent 3em, #c9c9c9 3em, transparent 3.06em);
+    color: black;
+  }
 }
 header a {
   text-transform: uppercase;
@@ -207,7 +297,7 @@ header a {
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
-  color: pink;
+  color: #a9c528;
   padding: 15px;
   transform: scale(1.1) rotate(-1deg);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
@@ -232,17 +322,26 @@ header a {
   text-align: right;
   color: white;
 }
+body.home .square-logo a {
+  color: #a9c528;
+}
+body.css .square-logo a {
+  color: #f9b109;
+}
 .mobile-menu-btn {
-  font-size: 2em;
+  font-size: 2.7em;
   cursor: pointer;
-  height: 1.5em;
-  width: 2em;
-  align-items: center;
+  align-items: flex-end;
   display: flex;
+  padding: 0 10px;
 }
 @media all and (min-width: 767px) {
   .mobile-menu-btn {
     justify-content: flex-end;
+    height: 1.5em;
+    width: 2em;
+    align-items: center;
+    font-size: 2.5em;
   }
 }
 .overlay {
@@ -275,9 +374,15 @@ header a {
 }
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 10px;
+  bottom: 0;
+  right: 0;
   font-size: 7em;
+}
+@media all and (min-width: 767px) {
+  .overlay .closebtn {
+    top: 20px;
+    right: 10px;
+  }
 }
 @media screen and (max-height: 450px) {
   .overlay a {
@@ -291,6 +396,10 @@ header a {
 }
 a {
   text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #fb6e67;
 }
 .primary-button {
   display: block;
@@ -306,6 +415,12 @@ a {
 }
 .primary-button.green {
   background: #a9c528;
+}
+.primary-button.pink {
+  background: pink;
+}
+.primary-button.neutral {
+  background: #d8d2ca;
 }
 @keyframes fadeInUp {
   from {
@@ -468,45 +583,31 @@ a {
   color: #c1dedf;
 }
 /* ---------- second section on the home page ---------- */
-.home-details {
-  justify-content: flex-start;
-}
 .home-details h2 {
   text-align: center;
 }
-.home-details article {
-  display: flex;
-  flex-direction: column;
-  max-width: 90%;
-}
-@media only screen and (min-device-width: 1024px) {
-  .home-details article {
-    flex-direction: row;
-    justify-content: space-between;
+@media all and (min-width: 767px) {
+  body.css section:first-of-type {
+    max-width: 70%;
+    margin: 0 auto;
   }
 }
-.home-details .cardholder {
-  flex: 0 0 31%;
-  border: 1px solid #E3DFD9;
-  margin: 7px 0;
+body.css section h1 {
+  margin-top: 3em;
+  color: #f9b109;
+  border-bottom: 1px solid #c9c9c9;
+  text-align: center;
 }
-.home-details .cardholder:focus,
-.home-details .cardholder:hover {
+body.css .cardholder:focus,
+body.css .cardholder:hover {
+  transform: rotate(0);
+  transition: all 0.3s;
+}
+body.css .cardholder:focus h3,
+body.css .cardholder:hover h3 {
   transform: rotate(-1deg);
   transition: all 0.3s;
 }
-.home-details .cardholder:focus a,
-.home-details .cardholder:hover a {
-  transform: rotate(1deg);
-  transition: all 0.3s;
-}
-.home-details .card {
-  padding: 10px;
-}
-.home-details .card .primary-button:hover,
-.home-details .card .primary-button:focus {
-  background: #d8d2ca;
-}
-.home-details .card .primary-button h3 {
-  margin: 0;
+body.css .cardholder a {
+  display: inline;
 }

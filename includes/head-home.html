@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>faylisa.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Khula|Slabo+27px|Qwigley:300,400" rel="stylesheet">
+  <!-- <script src="https://use.fontawesome.com/cc309756c2.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script>
+  function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+  }
+
+  function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+  }
+  </script>
+  <script>
+      // Wait for window load
+      $(window).load(function() {
+        // Animate loader off screen
+        $("#loader").fadeOut(800);
+        setTimeout(function () {
+           $("header").removeClass('closed');
+  }, 6500);
+
+    });
+  </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>

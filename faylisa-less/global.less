@@ -9,23 +9,115 @@ body {
 
 // so each section takes up the viewport.
 section {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
   position: relative;
-  margin: 20% auto 0;
   padding: 10px;
 
-  @media only screen
-  and (min-device-width: 320px)
-  and (max-device-width: 767px)
-  and (orientation : landscape) {
-    margin-top: auto;
+  // @media only screen
+  // and (min-device-width: 320px)
+  // and (max-device-width: 767px)
+  // and (orientation : landscape) {
+  //   margin-top: auto;
+  // }
+  // @media all and (min-width: 767px) {
+  //   justify-content: center;
+  //    margin-top: 0;
+  // }
+
+  &.home-intro {
+    min-height: 100vh;
   }
+}
+
+// cards used multiple places in site.
+article {
+  display: flex;
+  flex-direction: column;
+
+  // // this one's for ipad pro and up
+  @media only screen
+  and (min-device-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 90%;
+  }
+}
+
+.cardholder {
+  flex: 0 0 31%;
+  border: 1px solid #E3DFD9;
+  margin: 7px 0;
+  cursor: default;
+
+  a {
+    color: @body-txt;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:focus, &:hover {
+    transform: rotate(-1deg); // puts a slight skew on it.
+    transition: all 0.3s;
+
+    h3 {
+      transform: rotate(1deg); // puts a slight skew on it.
+      transition: all 0.3s;
+    }
+  }
+}
+
+.card {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+footer {
+  width: 100%;
+  background: rgba(224,220,209,0.3);
+  border-top: @primary-border;
+  font-size: 0.6em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1em 5%;
+
   @media all and (min-width: 767px) {
-    justify-content: center;
-     margin-top: 0;
+    flex-direction: row;
+  }
+
+  ul {
+    width: 100%;
+
+    @media all and (min-width: 767px) {
+      width: auto;
+    }
+      li {
+      display: block;
+      padding: 10px 7px;
+      text-align: center;
+      background: rgba(224,220,209,0.5);
+      margin: 4px 0;
+
+      @media all and (min-width: 767px) {
+        display: inline;
+        padding: 0 7px;
+        background: transparent;
+        margin: 0;
+      }
+
+      a {
+        color: @emphasis;
+      }
+    }
   }
 }

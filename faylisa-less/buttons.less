@@ -1,10 +1,14 @@
 a {
   text-decoration: none;
+
+  &:hover, &:focus {
+    color: @link-focus;
+  }
 }
 
 .primary-button {
   display: block;
-  color: #000000;
+  color: @body-secondary-txt;
   padding: 1em;
   text-align: center;
 
@@ -18,5 +22,13 @@ a {
 
   &.green {
     background: @green-emphasis;
+  }
+
+  &.pink {
+    background: pink;
+  }
+
+  &.neutral {
+    background: rgba(216,210,202,1);
   }
 }

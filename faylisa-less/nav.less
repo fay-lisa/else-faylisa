@@ -4,10 +4,10 @@
 
 header {
   position: fixed;
-  top: 0px;
+  bottom: 0px;
   width: 100%;
-  background-image: linear-gradient(to bottom, rgba(224,220,209,0.3), rgba(224,220,209,0.3) 3em, transparent 3em, @primary-border 3em, transparent 3.06em);
-  color: black;
+  background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.7) 3.5em, transparent 3.5em, @primary-border 3.5em, transparent 3.06em);
+  color: pink;
   z-index: 1;
   transition-duration: 1s;
   padding: 0 10px;
@@ -15,9 +15,21 @@ header {
   justify-content: space-between;
   align-items: flex-start;
   &.closed {
-    top: -160px;
+    bottom: -160px;
     z-index: 1;
     transition-duration: 1s;
+
+    @media screen and (min-width: 767px) {
+      top: -160px;
+    }
+  }
+
+  // changing this to sit at the top on desktop, and ipad +
+  @media all and (min-width: 767px) {
+    top: 0;
+    bottom: auto;
+    background-image: linear-gradient(to bottom, rgba(224,220,209,0.3), rgba(224,220,209,0.3) 3em, transparent 3em, @primary-border 3em, transparent 3.06em);
+    color: black;
   }
 
   a {
@@ -64,7 +76,7 @@ header {
     // flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    color: pink;
+    color: @green-emphasis;
     padding: 15px;
     transform: scale(1.1) rotate(-1deg); // puts a slight skew on it.
     box-shadow: 0 0 4px rgba(0,0,0,0.5);
@@ -95,21 +107,33 @@ header {
   }
 }
 
+// now we change the color of the logo/text based on body class
+body.home .square-logo a {
+  color: @green-emphasis;
+}
+
+body.css .square-logo a {
+  color: @yellow-emphasis;
+}
+
 
   // new menu. no really.
   // TODO: rename all of these classes.
 
 // mobile button itself.
 .mobile-menu-btn {
-  font-size: 2em;
-  cursor:pointer;
-  height: 1.5em;
-  width: 2em;
-  align-items: center;
+  font-size: 2.7em;
+  cursor: pointer;
+  align-items: flex-end;
   display: flex;
+  padding: 0 10px;
 
   @media all and (min-width: 767px) {
     justify-content: flex-end;
+    height: 1.5em;
+    width: 2em;
+    align-items: center;
+    font-size: 2.5em;
   }
 }
 .overlay {
@@ -145,9 +169,14 @@ header {
 
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
-    right: 10px;
+    bottom: 0;
+    right: 0;
     font-size: 7em;
+
+    @media all and (min-width: 767px) {
+      top: 20px;
+      right: 10px;
+    }
 }
 
 @media screen and (max-height: 450px) {

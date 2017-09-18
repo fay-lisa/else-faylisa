@@ -134,53 +134,8 @@
 
 /* ---------- second section on the home page ---------- */
 .home-details {
-  justify-content: flex-start;
 
   h2 {
     text-align: center;
-  }
-
-  article {
-    display: flex;
-    flex-direction: column;
-    max-width: 90%;
-    // // this one's for ipad pro and up
-    @media only screen
-    and (min-device-width: 1024px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-
-  .cardholder {
-    flex: 0 0 31%;
-    border: 1px solid #E3DFD9;
-    margin: 7px 0;
-
-    &:focus, &:hover {
-      transform: rotate(-1deg); // puts a slight skew on it.
-      transition: all 0.3s;
-
-      a {
-        transform: rotate(1deg); // puts a slight skew on it.
-        transition: all 0.3s;
-      }
-    }
-  }
-
-  .card {
-    padding: 10px;
-
-    .primary-button {
-
-      &:hover, &:focus {
-        background: @from;
-      }
-
-      h3 {
-        margin: 0;
-      }
-    }
-
   }
 }
