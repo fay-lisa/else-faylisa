@@ -184,7 +184,7 @@ header {
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 header.closed {
   top: -160px;
@@ -197,33 +197,16 @@ header a {
   text-decoration: none;
   text-align: right;
 }
-#topnav {
+.topnav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
-}
-.logo,
-.square-logo {
-  flex: 0 0 70%;
-}
-@media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
-  .logo,
-  .square-logo {
-    flex: 0 0 40%;
-  }
-}
-@media all and (min-width: 767px) {
-  .logo,
-  .square-logo {
-    flex: 1 1 auto;
-  }
+  padding: 0 1%;
 }
 .square-logo a {
   background: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 5%;
+  display: flex;
+  flex-direction: column;
   color: pink;
   padding: 15px;
   transform: scale(1.1) rotate(-1deg);
@@ -252,8 +235,10 @@ header a {
 .mobile-menu-btn {
   font-size: 2em;
   cursor: pointer;
-  padding: 6px 10px;
-  align-self: flex-start;
+  height: 1.5em;
+  width: 2em;
+  align-items: center;
+  display: flex;
 }
 @media all and (min-width: 767px) {
   .mobile-menu-btn {
@@ -292,7 +277,7 @@ header a {
   position: absolute;
   top: 20px;
   right: 10px;
-  font-size: 60px;
+  font-size: 7em;
 }
 @media screen and (max-height: 450px) {
   .overlay a {
@@ -315,7 +300,12 @@ a {
 }
 .primary-button.blue {
   background: #c1dedf;
-  color: #ffffff;
+}
+.primary-button.yellow {
+  background: #f9b109;
+}
+.primary-button.green {
+  background: #a9c528;
 }
 @keyframes fadeInUp {
   from {
@@ -486,28 +476,37 @@ a {
 }
 .home-details article {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  max-width: 90%;
 }
 @media only screen and (min-device-width: 1024px) {
   .home-details article {
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 .home-details .cardholder {
-  flex: 0 0 100%;
+  flex: 0 0 31%;
+  border: 1px solid #E3DFD9;
+  margin: 7px 0;
 }
-@media only screen and (min-device-width: 667px) {
-  .home-details .cardholder {
-    flex: 0 0 30%;
-  }
+.home-details .cardholder:focus,
+.home-details .cardholder:hover {
+  transform: rotate(-1deg);
+  transition: all 0.3s;
+}
+.home-details .cardholder:focus a,
+.home-details .cardholder:hover a {
+  transform: rotate(1deg);
+  transition: all 0.3s;
 }
 .home-details .card {
-  margin: 0.5em 0;
+  padding: 10px;
 }
-.home-details .card a {
-  border: 1px solid #E3DFD9;
+.home-details .card .primary-button:hover,
+.home-details .card .primary-button:focus {
+  background: #d8d2ca;
 }
-.home-details .card a h3 {
+.home-details .card .primary-button h3 {
   margin: 0;
 }
