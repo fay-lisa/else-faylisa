@@ -79,18 +79,18 @@ header {
     color: @green-emphasis;
     padding: 15px;
     transform: scale(1.1) rotate(-1deg); // puts a slight skew on it.
-    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    box-shadow: @shadow;
   }
 
   h1, h2 {
     transform: rotate(1deg);
     margin: 0;
-
   }
+
   h1 {
     letter-spacing: -0.04em;
     font-weight: 300;
-    text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    text-shadow: @shadow;
     font-family: 'Oswald', sans-serif;
 
     // to bring the 'fay' part inline with the spacing of the 'lisa'
@@ -103,7 +103,7 @@ header {
     font-size: 0.8em;
     font-family: 'Oswald', sans-serif;
     text-align: right;
-    color: white;
+    color: @alt-link-text;
   }
 }
 
@@ -137,52 +137,55 @@ body.css .square-logo a {
   }
 }
 .overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: rgba(0,0,0, 0.85);
-    overflow-x: hidden;
-    transition: 0.5s;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: @secondary-bkg;
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
 }
 
 .overlay-content {
-    width: 100%;
+  width: 100%;
 }
 
 .overlay a {
-    padding: 12px 25px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 36px;
+  color: @alt-link-text;
+  display: block;
+  transition: 0.3s;
 }
 
 .overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
+  color: @link-focus;
 }
 
 .overlay .closebtn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 7em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 7em;
 
-    @media all and (min-width: 767px) {
-      top: 20px;
-      right: 10px;
-    }
+  @media all and (min-width: 767px) {
+    top: 20px;
+    right: 10px;
+    bottom: auto;
+  }
 }
 
 @media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
+  .overlay a {
+    font-size: 1.5em;
+  }
   .overlay .closebtn {
-    font-size: 40px;
+    font-size: 2.5em;
     top: 15px;
     right: 0;
   }

@@ -24,7 +24,7 @@
 
           <div class="cardholder second">
             <div class="card">
-              <h3 class="primary-button blue">FadeIn + Stay Animation</h3>
+              <h3 class="primary-button yellow">FadeIn + Stay Animation</h3>
               <p data-height="200" data-theme-id="light" data-slug-hash="QKWkLA" data-default-tab="css,result" data-user="fay-lisa" data-embed-version="2" data-pen-title="Fade-In and Stay animation CSS3" data-preview="true" class="codepen"></p>
               <p><a href="https://codepen.io/fay-lisa/pen/QKWkLA/">CSS3 Fade-In and Stay animation: See the CodePen</a></p>
             </div>
@@ -32,7 +32,7 @@
 
           <div class="cardholder">
             <div class="card">
-              <h3 class="primary-button green">Holy Grail w/Flex</h3>
+              <h3 class="primary-button yellow">Holy Grail w/Flex</h3>
               <p data-height="200" data-theme-id="light" data-slug-hash="ZpGvzL" data-default-tab="css,result" data-user="fay-lisa" data-embed-version="2" data-pen-title="Flex-box 'holy grail' layout" data-preview="true" class="codepen"></p>
               <p><a href="https://codepen.io/fay-lisa/pen/ZpGvzL/">Flex-box 'holy grail' layout: See the CodePen</a></p>
             </div>
@@ -42,7 +42,7 @@
         <article>
           <div class="cardholder">
             <div class="card">
-              <h3 class="primary-button pink">Carousel</h3>
+              <h3 class="primary-button yellow">Carousel</h3>
               <p data-height="200" data-theme-id="light" data-slug-hash="vXRoGo" data-default-tab="css,result" data-user="fay-lisa" data-embed-version="2" data-pen-title="Carousel with css transition, links within panels, diff bkg options" data-preview="true" class="codepen"></p>
               <p><a href="https://codepen.io/fay-lisa/pen/vXRoGo/">Carousel with css transition, links within panels, diff bkg options: See the CodePen</a></p>
             </div>
@@ -50,13 +50,13 @@
 
           <div class="cardholder second">
             <div class="card">
-              <h3 class="primary-button neutral">Holy Grail Old School</h3>
+              <h3 class="primary-button yellow">Holy Grail Old School</h3>
               <p data-height="200" data-theme-id="light" data-slug-hash="pEWWyE" data-default-tab="css,result" data-user="fay-lisa" data-embed-version="2" data-pen-title="CSS only 'holy grail' layout, no flex" data-preview="true" class="codepen"></p>
               <p><a href="https://codepen.io/fay-lisa/pen/pEWWyE/">CSS only 'holy grail' layout, old school: See the CodePen for desktop layout</a></p>
             </div>
           </div>
 
-          <div class="cardholder second">
+          <div class="cardholder">
             <div class="card">
               <h3 class="primary-button yellow">Git Project</h3>
               <p>The CSS behind this site, if you're curious. Written in LESS, though I considered using SASS. My current office uses SASS, so I'm a bit ambidexterous there.</p>

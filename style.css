@@ -179,7 +179,7 @@ article {
 }
 .cardholder {
   flex: 0 0 31%;
-  border: 1px solid #E3DFD9;
+  border: 1px solid #e3dfd9;
   margin: 7px 0;
   cursor: default;
 }
@@ -209,7 +209,7 @@ article {
 footer {
   width: 100%;
   background: rgba(224, 220, 209, 0.3);
-  border-top: #c9c9c9;
+  border-top: #e3dfd9;
   font-size: 0.6em;
   display: flex;
   align-items: center;
@@ -252,7 +252,7 @@ header {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 3.5em, transparent 3.5em, #c9c9c9 3.5em, transparent 3.06em);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 3.5em, transparent 3.5em, #e3dfd9 3.5em, transparent 3.06em);
   color: pink;
   z-index: 1;
   transition-duration: 1s;
@@ -275,7 +275,7 @@ header.closed {
   header {
     top: 0;
     bottom: auto;
-    background-image: linear-gradient(to bottom, rgba(224, 220, 209, 0.3), rgba(224, 220, 209, 0.3) 3em, transparent 3em, #c9c9c9 3em, transparent 3.06em);
+    background-image: linear-gradient(to bottom, rgba(224, 220, 209, 0.3), rgba(224, 220, 209, 0.3) 3em, transparent 3em, #e3dfd9 3em, transparent 3.06em);
     color: black;
   }
 }
@@ -318,7 +318,7 @@ header a {
   font-size: 0.8em;
   font-family: 'Oswald', sans-serif;
   text-align: right;
-  color: white;
+  color: #ffffff;
 }
 body.home .square-logo a {
   color: #a9c528;
@@ -362,13 +362,13 @@ body.css .square-logo a {
   padding: 12px 25px;
   text-decoration: none;
   font-size: 36px;
-  color: #818181;
+  color: #ffffff;
   display: block;
   transition: 0.3s;
 }
 .overlay a:hover,
 .overlay a:focus {
-  color: #f1f1f1;
+  color: #6b6969;
 }
 .overlay .closebtn {
   position: absolute;
@@ -380,14 +380,15 @@ body.css .square-logo a {
   .overlay .closebtn {
     top: 20px;
     right: 10px;
+    bottom: auto;
   }
 }
 @media screen and (max-height: 450px) {
   .overlay a {
-    font-size: 20px;
+    font-size: 1.5em;
   }
   .overlay .closebtn {
-    font-size: 40px;
+    font-size: 2.5em;
     top: 15px;
     right: 0;
   }
@@ -398,7 +399,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #fb6e67;
+  color: #6b6969;
 }
 .primary-button {
   display: block;
@@ -406,7 +407,7 @@ a:focus {
   padding: 1em;
   text-align: center;
 }
-.primary-button.blue {
+.primary-button.pale-blue {
   background: #c1dedf;
 }
 .primary-button.yellow {
@@ -577,7 +578,7 @@ a:focus {
 }
 .home-cta .cta-box:last-of-type a:hover {
   background: rgba(0, 0, 0, 0.5);
-  color: #c1dedf;
+  color: #8bd4e7;
 }
 /* ---------- second section on the home page ---------- */
 .home-details h2 {
@@ -592,7 +593,7 @@ a:focus {
 body.css section h1 {
   margin-top: 3em;
   color: #f9b109;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid #e3dfd9;
   text-align: center;
 }
 body.css .cardholder:focus,

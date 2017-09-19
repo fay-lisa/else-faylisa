@@ -40,7 +40,7 @@
         <div class="cardholder second">
           <a href="/">
             <div class="card">
-              <h3 class="primary-button blue">I design</h3>
+              <h3 class="primary-button pale-blue">I design</h3>
               <p>Design is love of art, and form, of function and of reaching out and touching someone you've never met.</p>
               <p>I've been at design since 1997</p>
             </div>

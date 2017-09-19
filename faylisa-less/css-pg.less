@@ -3,7 +3,6 @@
 body.css {
 
   section {
-
     &:first-of-type {
       @media all and (min-width: 767px) {
         max-width: 70%; // for readability
@@ -18,6 +17,8 @@ body.css {
       text-align: center;
     }
   }
+
+  // altering the cards so only the headers skew.
   .cardholder {
     &:focus, &:hover {
       transform: rotate(0); // puts a slight skew on it.
@@ -28,9 +29,9 @@ body.css {
         transition: all 0.3s;
       }
     }
+    
     a {
       display: inline;
     }
   }
-
 }
