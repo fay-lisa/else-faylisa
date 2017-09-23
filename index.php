@@ -25,14 +25,13 @@
     </section>
 
     <section class="home-details">
-      <h2>Alright enough nonsense what is it you do, woman?</h2>
       <article>
         <div class="cardholder">
           <a href="css.php">
             <div class="card">
               <h3 class="primary-button yellow" >I write css</h3>
-              <p>I speak it fluently. I love it, and how it evolves, like I love my mother tongue.</p>
-              <p>I can herd errant CSS, and I can fix just about anything people do to CSS when angry.</p>
+              <p>I create advanced, cross-browser compatible, standards-compliant CSS frameworks tailored for individual projects, using LESS/SASS/Vanilla CSS + HTML.</p>
+              <p> I can also work with existing CSS, either in existing frameworks like Bootstrap, or plain CSS in legacy web applications.</p>
             </div>
           </a>
         </div>
@@ -41,8 +40,7 @@
           <a href="/">
             <div class="card">
               <h3 class="primary-button pale-blue">I design</h3>
-              <p>Design is love of art, and form, of function and of reaching out and touching someone you've never met.</p>
-              <p>I've been at design since 1997</p>
+              <p>I design modern websites and apps with the end user in mind, paying attention to behaviour, workflow and best practices based on 20 years of experience from the birth of the web to today's evolving ecosystem.</p>
             </div>
           </a>
         </div>
@@ -51,8 +49,7 @@
           <a href="/">
             <div class="card">
               <h3 class="primary-button green">Mostly, I bridge gaps</h3>
-              <p>In all but one company I've worked for in the last 12 years, I have been the bridge that spans design, and programming.</p>
-              <p>Bringing design's vision and programming's function to life.</p>
+              <p>I work directly with developers in order to make their applications effective, and I work directly with marketers and other designers to make sure their vision is functional, accessible, and easy to maintain.</p>
             </div>
           </a>
         </div>
