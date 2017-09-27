@@ -16,6 +16,10 @@ section {
   &.home-intro {
     min-height: 100vh;
   }
+
+  // @media all and (min-width: 767px) {
+  //   flex-direction: row;
+  // }
 }
 
 // cards used multiple places in site.
@@ -70,14 +74,14 @@ footer {
   background: @neutral-trans;
   border-top: @primary-border;
   font-size: 0.6em;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   padding: 1em 5%;
-
+  display: none;
   @media all and (min-width: 767px) {
     flex-direction: row;
+    display: flex;
   }
 
   ul {
@@ -105,4 +109,37 @@ footer {
       }
     }
   }
+}
+
+
+// for a split page. trying something out.
+.gaps {
+
+  section {
+    //flex-direction: row;
+    padding: 0;
+  }
+  h1 {
+    flex: 0 0 100%;
+  }
+  .left-gap, .right-gap {
+    min-height: 40vh;
+    width: 20vw;
+    padding: 20px 50px;
+    margin-top: 30%;
+  }
+  .left-gap {
+    background: @blue-trans;
+    transform: scale(1.1) rotate(-1deg); // puts a slight skew on it.
+
+  }
+  .right-gap {
+    background: @black-trans;
+    transform: scale(1.1) rotate(1deg); // puts a slight skew on it.
+
+  }
+}
+
+.hidden {
+  display: none;
 }

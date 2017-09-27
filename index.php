@@ -40,7 +40,7 @@
           <a href="/">
             <div class="card">
               <h3 class="primary-button pale-blue">I design</h3>
-              <p>I design modern websites and apps with the end user in mind, paying attention to behaviour, workflow and best practices based on 20 years of experience from the birth of the web to today's evolving ecosystem.</p>
+              <p>I design modern websites and apps with the end user in mind, paying attention to behaviour, workflow, user-flow and best practices based on 20 years of experience from the birth of the web to today's evolving ecosystem.</p>
             </div>
           </a>
         </div>

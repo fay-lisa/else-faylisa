@@ -65,21 +65,19 @@ header {
 
 // for the square one.
 .square-logo {
-  // flex: 1 1 auto;
   a {
-    //background: rgba(249,55,48,0.5);
     background: rgba(0,0,0,0.7);
-    //background: #FC7B77;
-    // position: absolute;
-    // top: 0;
-    // left: 5%;
-    // flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     color: @green-emphasis;
     padding: 15px;
-    transform: scale(1.1) rotate(-1deg); // puts a slight skew on it.
-    box-shadow: @shadow;
+    transform: rotate(-1deg); // puts a slight skew on it.
+    transition: all 300ms ease-in-out;
+    margin-top: -2px; // to hide the corner
+
+    &:hover, &:focus {
+      transform: scale(1.1);
+    }
   }
 
   h1, h2 {
@@ -89,6 +87,7 @@ header {
 
   h1 {
     letter-spacing: -0.04em;
+    line-height: 1;
     font-weight: 300;
     text-shadow: @shadow;
     font-family: 'Oswald', sans-serif;
@@ -110,6 +109,10 @@ header {
 // now we change the color of the logo/text based on body class
 body.home .square-logo a {
   color: @green-emphasis;
+}
+
+body.home2 .square-logo a {
+  color: @pink-emphasis;
 }
 
 body.css .square-logo a {

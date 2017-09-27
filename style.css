@@ -127,7 +127,7 @@ video {
 body {
   font-size: 17px;
   font-family: 'Khula', sans-serif;
-  color: #605f5f;
+  color: #212121;
   line-height: 1.5;
 }
 h1,
@@ -249,9 +249,6 @@ footer {
   background: rgba(224, 220, 209, 0.3);
   border-top: #e3dfd9;
   font-size: 0.6em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -263,6 +260,7 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 1em 5%;
+  display: none;
 }
 @media all and (min-width: 767px) {
   footer {
@@ -270,6 +268,9 @@ footer {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 footer ul {
@@ -297,6 +298,34 @@ footer ul li {
 }
 footer ul li a {
   color: #fb6e67;
+}
+.gaps section {
+  padding: 0;
+}
+.gaps h1 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+}
+.gaps .left-gap,
+.gaps .right-gap {
+  min-height: 40vh;
+  width: 20vw;
+  padding: 20px 50px;
+  margin-top: 30%;
+}
+.gaps .left-gap {
+  background: rgba(122, 188, 190, 0.7);
+  -webkit-transform: scale(1.1) rotate(-1deg);
+          transform: scale(1.1) rotate(-1deg);
+}
+.gaps .right-gap {
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-transform: scale(1.1) rotate(1deg);
+          transform: scale(1.1) rotate(1deg);
+}
+.hidden {
+  display: none;
 }
 header {
   position: fixed;
@@ -366,10 +395,16 @@ header a {
           flex-direction: column;
   color: #a9c528;
   padding: 15px;
-  -webkit-transform: scale(1.1) rotate(-1deg);
-          transform: scale(1.1) rotate(-1deg);
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  -webkit-transform: rotate(-1deg);
+          transform: rotate(-1deg);
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  margin-top: -2px;
+}
+.square-logo a:hover,
+.square-logo a:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .square-logo h1,
 .square-logo h2 {
@@ -379,6 +414,7 @@ header a {
 }
 .square-logo h1 {
   letter-spacing: -0.04em;
+  line-height: 1;
   font-weight: 300;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   font-family: 'Oswald', sans-serif;
@@ -394,6 +430,9 @@ header a {
 }
 body.home .square-logo a {
   color: #a9c528;
+}
+body.home2 .square-logo a {
+  color: #fb6e67;
 }
 body.css .square-logo a {
   color: #f9b109;
@@ -488,13 +527,18 @@ a:focus {
   color: #6b6969;
 }
 .primary-button {
-  display: block;
   color: #000000;
   padding: 1em;
   text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 .primary-button.pale-blue {
   background: #c1dedf;
+}
+.primary-button.blue {
+  background: #8bd4e7;
 }
 .primary-button.yellow {
   background: #f9b109;
@@ -503,10 +547,14 @@ a:focus {
   background: #a9c528;
 }
 .primary-button.pink {
-  background: pink;
+  background: #fb6e67;
+  color: #ffffff;
 }
 .primary-button.neutral {
   background: #d8d2ca;
+}
+.primary-button.grey {
+  background: rgba(0, 0, 0, 0.7);
 }
 @-webkit-keyframes fadeInUp {
   from {
@@ -733,6 +781,265 @@ a:focus {
 /* ---------- second section on the home page ---------- */
 .home-details h2 {
   text-align: center;
+}
+/* ----- animation container. ----- */
+.intro-animation {
+  font-size: 1.3em;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media screen and (min-width: 1024px) {
+  .intro-animation {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.intro-animation .type {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  /* ----- now we set up the transparency and animation for individual elements ----- */
+  /* -----  recolors some of the text ----- */
+}
+@media all and (min-width: 1024px) {
+  .intro-animation .type {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+.intro-animation .type .just-text p,
+.intro-animation .type .just-text h1 {
+  padding: 0.25em 0;
+  opacity: 0;
+  -webkit-animation: fadeIn 1s ease-in-out 0s forwards;
+          animation: fadeIn 1s ease-in-out 0s forwards;
+}
+.intro-animation .type .just-text h1 {
+  font-family: 'Slabo 27px', serif;
+  font-size: 1.5em;
+  margin: 0;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+@media all and (min-width: 414px) {
+  .intro-animation .type .just-text h1 {
+    font-size: 1.7em;
+  }
+}
+.intro-animation .type .just-text p:nth-of-type(1) {
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+.intro-animation .type .just-text p:nth-of-type(2) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.intro-animation .type .just-text p:nth-of-type(3) {
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
+}
+.intro-animation .type .emphasis {
+  color: #fb6e67;
+  font-family: 'Slabo 27px', serif;
+}
+.intro-animation .imum {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  opacity: 0;
+  -webkit-animation: fadeIn 1s ease-in-out 0.5s forwards;
+          animation: fadeIn 1s ease-in-out 0.5s forwards;
+  width: 60%;
+}
+@media all and (min-width: 1024px) {
+  .intro-animation .imum {
+    margin-right: 2%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: auto;
+  }
+}
+.home-css,
+.home-art,
+.home-bridge {
+  margin: 10% 0;
+}
+@media all and (min-width: 1024px) {
+  .home-css,
+  .home-art,
+  .home-bridge {
+    min-height: 100vh;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+@media all and (min-width: 767px) {
+  .home-css div,
+  .home-art div,
+  .home-bridge div {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
+}
+.home-css .imum,
+.home-art .imum,
+.home-bridge .imum {
+  text-align: center;
+}
+.home-css p,
+.home-art p,
+.home-bridge p {
+  font-size: 19px;
+}
+.home-css h2,
+.home-art h2,
+.home-bridge h2 {
+  -webkit-transform: rotate(-1deg);
+          transform: rotate(-1deg);
+}
+@media all and (min-width: 1024px) {
+  .home-css h2,
+  .home-art h2,
+  .home-bridge h2 {
+    width: 60%;
+  }
+}
+.home-css h2 a,
+.home-art h2 a,
+.home-bridge h2 a {
+  display: block;
+  color: #000000;
+  padding: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+}
+.home-css h2 a.pale-blue,
+.home-art h2 a.pale-blue,
+.home-bridge h2 a.pale-blue {
+  background: #c1dedf;
+}
+.home-css h2 a.blue,
+.home-art h2 a.blue,
+.home-bridge h2 a.blue {
+  background: #8bd4e7;
+}
+.home-css h2 a.yellow,
+.home-art h2 a.yellow,
+.home-bridge h2 a.yellow {
+  background: #f9b109;
+}
+.home-css h2 a.green,
+.home-art h2 a.green,
+.home-bridge h2 a.green {
+  background: #a9c528;
+}
+.home-css h2 a.pink,
+.home-art h2 a.pink,
+.home-bridge h2 a.pink {
+  background: #fb6e67;
+  color: #ffffff;
+}
+.home-css h2 a.neutral,
+.home-art h2 a.neutral,
+.home-bridge h2 a.neutral {
+  background: #d8d2ca;
+}
+.home-css h2 a.grey,
+.home-art h2 a.grey,
+.home-bridge h2 a.grey {
+  background: rgba(0, 0, 0, 0.7);
+}
+.home-css h2 .bridge,
+.home-art h2 .bridge,
+.home-bridge h2 .bridge {
+  color: #8bd4e7;
+}
+.home-css h2 .bridge:hover,
+.home-art h2 .bridge:hover,
+.home-bridge h2 .bridge:hover,
+.home-css h2 .bridge:focus,
+.home-art h2 .bridge:focus,
+.home-bridge h2 .bridge:focus {
+  background: #8bd4e7;
+  color: #000000;
+}
+.home-css h2 .css,
+.home-art h2 .css,
+.home-bridge h2 .css {
+  color: #f9b109;
+}
+.home-css h2 .css:hover,
+.home-art h2 .css:hover,
+.home-bridge h2 .css:hover,
+.home-css h2 .css:focus,
+.home-art h2 .css:focus,
+.home-bridge h2 .css:focus {
+  background: #f9b109;
+  color: #000000;
+}
+.home-css h2 .art,
+.home-art h2 .art,
+.home-bridge h2 .art {
+  color: #fb6e67;
+}
+.home-css h2 .art:hover,
+.home-art h2 .art:hover,
+.home-bridge h2 .art:hover,
+.home-css h2 .art:focus,
+.home-art h2 .art:focus,
+.home-bridge h2 .art:focus {
+  background: #fb6e67;
+  color: #ffffff;
+}
+.home-css .imum,
+.home-bridge .imum {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+@media all and (min-width: 767px) {
+  .home-css .imum,
+  .home-bridge .imum {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+.home-css .home-text,
+.home-bridge .home-text {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+@media all and (min-width: 767px) {
+  .home-css .home-text,
+  .home-bridge .home-text {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
 }
 @media all and (min-width: 767px) {
   body.css section:first-of-type {
