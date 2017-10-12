@@ -1,4 +1,7 @@
 
+html, body {
+  height: 100%;
+}
 body {
   min-height: 100vh;
   background: @primary-bkg url(images/body-top.png) center top no-repeat;
@@ -11,15 +14,35 @@ section {
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  padding: 10px;
+  margin: 0 auto;
 
-  &.home-intro {
-    min-height: 100vh;
+  &:not(.global--block) {
+    padding: 10px;
+    max-width: 1024px;
+  }
+}
+
+@media all and (min-width: 767px) {
+  .narrow-box {
+    width: 55%;
+    margin: 0 auto;
+  }
+}
+
+// blocks used throughout site.
+.global--block {
+  padding: 5em 0;
+  width: 100%;
+
+  //adding colors, where needed.
+  &.grey {
+    background: @grey-emphasis;
+    color: @body-tertiary-txt;
   }
 
-  // @media all and (min-width: 767px) {
-  //   flex-direction: row;
-  // }
+  &.neutral {
+    background: @neutral-emphasis;
+  }
 }
 
 // cards used multiple places in site.
@@ -27,12 +50,42 @@ article {
   display: flex;
   flex-direction: column;
 
-  // // this one's for ipad pro and up
-  @media only screen
-  and (min-device-width: 1024px) {
+  @media all and (min-width: 767px) {
     flex-direction: row;
     justify-content: space-between;
     max-width: 90%;
+  }
+}
+
+// image border and specs
+.global__images-border {
+  flex: 1;
+  text-align: center;
+
+  img {
+    padding: 18px;
+    background: @neutral-emphasis;
+    border: 3px solid @primary-border;
+  }
+
+  img, p {
+    width: 200px;
+    margin: 0 auto;
+  }
+}
+
+// and the accompanying text.
+.global__images-desc {
+  flex: 1;
+}
+
+// little list
+.global__little-list {
+  font-size: 0.8em;
+  color: @pink-emphasis;
+  li {
+    padding: 6px 12px;
+    display: inline-block;
   }
 }
 
@@ -78,7 +131,7 @@ footer {
   justify-content: space-between;
   flex-direction: column;
   padding: 1em 5%;
-  display: none;
+  display: none; // on mobile only, as the menu sits at the bottom
   @media all and (min-width: 767px) {
     flex-direction: row;
     display: flex;
@@ -110,34 +163,23 @@ footer {
     }
   }
 }
+// sticky footer, along with html and body at 100%
+main {
+  min-height: 100%;
 
+  // only for desktop
+  @media all and (min-width:767px) {
+    margin-bottom: -3em;
+  }
 
-// for a split page. trying something out.
-.gaps {
+  &:after {
+    content: "";
+    display: block;
+  }
+}
 
-  section {
-    //flex-direction: row;
-    padding: 0;
-  }
-  h1 {
-    flex: 0 0 100%;
-  }
-  .left-gap, .right-gap {
-    min-height: 40vh;
-    width: 20vw;
-    padding: 20px 50px;
-    margin-top: 30%;
-  }
-  .left-gap {
-    background: @blue-trans;
-    transform: scale(1.1) rotate(-1deg); // puts a slight skew on it.
-
-  }
-  .right-gap {
-    background: @black-trans;
-    transform: scale(1.1) rotate(1deg); // puts a slight skew on it.
-
-  }
+footer, main:after {
+  height: 5em;
 }
 
 .hidden {

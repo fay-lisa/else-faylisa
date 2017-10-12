@@ -1,24 +1,24 @@
-// variables for nav
-
-// the top nav bar. obviously. if you've forgotten that, we're in trouble.
+// the top/bottom nav bar. obviously. if you've forgotten that, we're in trouble.
+// link setup
 
 header {
   position: fixed;
   bottom: 0px;
   width: 100%;
   background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.7) 3.5em, transparent 3.5em, @primary-border 3.5em, transparent 3.06em);
-  color: pink;
-  z-index: 1;
+  z-index: 5;
   transition-duration: 1s;
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  color: @alt-link-text;
+
   &.closed {
     bottom: -160px;
     z-index: 1;
-    transition-duration: 1s;
 
+    // now we change this so it animates from the top instead
     @media screen and (min-width: 767px) {
       top: -160px;
     }
@@ -29,15 +29,7 @@ header {
     top: 0;
     bottom: auto;
     background-image: linear-gradient(to bottom, rgba(224,220,209,0.3), rgba(224,220,209,0.3) 3em, transparent 3em, @primary-border 3em, transparent 3.06em);
-    color: black;
-  }
-
-  a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Oswald', Helvetica, sans-serif;
-    text-decoration: none;
-    text-align: right;
+    color: @link-text;
   }
 }
 
@@ -46,24 +38,21 @@ header {
   justify-content: space-between;
   width: 100%;
   padding: 0 1%;
+
+  // for all links in the header
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Oswald', Helvetica, sans-serif;
+    text-align: right;
+  }
+
+  @media all and (min-width: 767px) {
+    justify-content: flex-start;
+  }
 }
 
-// .logo {
-//   flex: 0 0 70%;
-//
-//   @media only screen
-//   and (min-device-width : 320px)
-//   and (max-device-width : 667px)
-//   and (orientation : landscape) {
-//     flex: 0 0 40%;
-//   }
-//
-//   @media all and (min-width: 767px) {
-//     flex: 1 1 auto;
-//   }
-// }
-
-// for the square one.
+// the logo
 .square-logo {
   a {
     background: rgba(0,0,0,0.7);
@@ -76,13 +65,14 @@ header {
     margin-top: -2px; // to hide the corner
 
     &:hover, &:focus {
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(0deg);
     }
   }
 
   h1, h2 {
-    transform: rotate(1deg);
+    transform: rotate(1deg); //rotating the text back
     margin: 0;
+    font-family: 'Oswald', sans-serif;
   }
 
   h1 {
@@ -90,7 +80,6 @@ header {
     line-height: 1;
     font-weight: 300;
     text-shadow: @shadow;
-    font-family: 'Oswald', sans-serif;
 
     // to bring the 'fay' part inline with the spacing of the 'lisa'
     span {
@@ -100,7 +89,6 @@ header {
 
   h2 {
     font-size: 0.8em;
-    font-family: 'Oswald', sans-serif;
     text-align: right;
     color: @alt-link-text;
   }
@@ -108,7 +96,7 @@ header {
 
 // now we change the color of the logo/text based on body class
 body.home .square-logo a {
-  color: @green-emphasis;
+  color: blanchedalmond;
 }
 
 body.home2 .square-logo a {
@@ -119,6 +107,14 @@ body.css .square-logo a {
   color: @yellow-emphasis;
 }
 
+body.art .square-logo a {
+  color: @pink-emphasis;
+}
+
+body.design .square-logo a,
+body.gaps .square-logo a {
+  color: @blue-emphasis;
+}
 
   // new menu. no really.
   // TODO: rename all of these classes.
@@ -127,18 +123,27 @@ body.css .square-logo a {
 .mobile-menu-btn {
   font-size: 2.7em;
   cursor: pointer;
-  align-items: flex-end;
   display: flex;
+  align-items: flex-end;
   padding: 0 10px;
+  line-height: 1;
 
   @media all and (min-width: 767px) {
-    justify-content: flex-end;
-    height: 1.5em;
-    width: 2em;
-    align-items: center;
-    font-size: 2.5em;
+    // justify-content: flex-end;
+    // height: 1.5em;
+    // width: 2em;
+    // align-items: center;
+    // font-size: 2.5em;
+
+    // making the pull out mobile only.
+    display: none;
   }
 }
+
+.overlay-content {
+  width: 100%;
+}
+
 .overlay {
   height: 100%;
   width: 0;
@@ -151,45 +156,87 @@ body.css .square-logo a {
   transition: 0.5s;
   display: flex;
   align-items: center;
+
+  @media all and (min-width: 767px) {
+    //width: 80%; // sits to the left, beside logo
+    //width: auto; //sits to the right.
+    width: 100%; // sits the full width
+    background: transparent;
+    height: auto;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  // each menu item
+  li {
+    @media all and (min-width: 767px) {
+      display: inline-block;
+      transform: rotate(-1deg); // puts a slight skew on it.
+      background: rgba(0,0,0,0.8);
+      transition: all 300ms ease-in-out;
+
+      &:hover, &:focus {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  a {
+    padding: 12px 24px;
+    font-size: 36px;
+    color: @alt-link-text;
+    display: block; // so they take up the entirety of the li
+
+    @media all and (min-width: 767px) {
+      font-size: 20px;
+      padding: 12px 35px;
+      transform: rotate(1deg); // straightens the skew on desktop
+      transition: all 300ms ease-in-out;
+    }
+    // changing color for each item
+    &.css {
+      color: @yellow-emphasis;
+    }
+    &.art {
+      color: @pink-emphasis;
+    }
+    &.design {
+      color: @blue-emphasis;
+    }
+    &.about {
+      color: @green-emphasis;
+    }
+
+    // giving them all one hover/focus color
+    &:hover, &:focus {
+      color: @link-focus;
+    }
+  }
 }
 
-.overlay-content {
-  width: 100%;
-}
-
-.overlay a {
-  padding: 12px 25px;
-  text-decoration: none;
-  font-size: 36px;
-  color: @alt-link-text;
-  display: block;
-  transition: 0.3s;
-}
-
-.overlay a:hover, .overlay a:focus {
-  color: @link-focus;
-}
-
+// the close button on mobile
 .overlay .closebtn {
   position: absolute;
   bottom: 0;
   right: 0;
   font-size: 7em;
+  line-height: 0.7;
 
   @media all and (min-width: 767px) {
-    top: 20px;
-    right: 10px;
-    bottom: auto;
+    // top: 0;
+    // right: 10px;
+    // bottom: auto;
+    display: none;
   }
 }
-
-@media screen and (max-height: 450px) {
-  .overlay a {
-    font-size: 1.5em;
-  }
-  .overlay .closebtn {
-    font-size: 2.5em;
-    top: 15px;
-    right: 0;
-  }
-}
+//
+// @media screen and (max-height: 450px) {
+//   .overlay a {
+//     font-size: 1.5em;
+//   }
+//   .overlay .closebtn {
+//     font-size: 2.5em;
+//     top: 15px;
+//     right: 0;
+//   }
+// }

@@ -1,0 +1,81 @@
+// /* ----- animation container. ----- */
+// .block-animation {
+//   font-family:'Slabo 27px', serif;
+//   font-size: 1.3em;
+//   font-weight: 300;
+//   text-align: center;
+//   padding: 4em 0 1em;
+//
+//   /* ----- now we set up the transparency and animation for individual elements ----- */
+//   p, h1 {
+//     opacity: 0; // make them all hidden to start with.
+//     animation: fadeIn 1s ease-in-out 0s forwards;
+//     padding: 0.25em 0;
+//   }
+//
+//   h1 {
+//     animation-delay: 2s;
+//     font-size: 1.3em;
+//     margin: 0;
+//   }
+//
+//   p:nth-of-type(1) {
+//     animation-delay: 3.5s;
+//   }
+//   p:nth-of-type(2) {
+//     animation-delay: 5s;
+//   }
+//
+//   /* -----  recolors some of the text ----- */
+//   .emphasis {
+//     color: @pink-emphasis;
+//   }
+// }
+//
+// /* ----- sets up the calls to action ----- */
+// .home-cta {
+//   .flex-parent;
+//   flex-direction: row;
+//   flex-wrap: wrap; // to make Imum wrap on mobile
+//   width: 100%;
+//
+//   @media all and (min-width: 767px) { // for desktop
+//     justify-content: center;
+//   }
+//
+//   /* ----- animates the div holding Imum, sets the opacity for all ----- */
+//   div {
+//     animation: fadeIn 1s ease-in-out 0s forwards;
+//     opacity: 0;
+//     animation-delay: 0s;
+//   }
+//
+//   /* ----- tells Imum where to be ----- */
+//   .imum {
+//     flex: 0 0 auto;
+//     order: 2;
+//     text-align: center;
+//
+//     /* ----- tells Imum how large to be ----- */
+//     img {
+//       width: 200px;
+//     }
+//
+//     @media only screen
+//     and (min-device-width : 320px)
+//     and (max-device-width : 768px) {
+//       flex: 1 1 100%;
+//     }
+//     @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+//       order: 1;
+//     }
+//   }
+// }
+//
+// /* ---------- second section on the home page ---------- */
+// .home-details {
+//
+//   h2 {
+//     text-align: center;
+//   }
+// }

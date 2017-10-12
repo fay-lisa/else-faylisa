@@ -7,7 +7,7 @@ body {
   font-size: 17px;
   font-family:'Khula', sans-serif;
   color: @body-txt;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 // sets up the default weight, and width of all title tags
@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   margin: 1em 0;
   font-family:'Slabo 27px', serif;
+
+  a {
+    font-family: 'Oswald', Helvetica, sans-serif;
+  }
 }
 
 // used in top nav (sz changed), twin-story (hidden), report social wall
@@ -24,6 +28,17 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2em;
   font-weight: 500;
+}
+
+// for page titles.
+.page-title {
+  // color per page
+  border-bottom: 1px solid @primary-border;
+  text-align: center;
+
+  @media all and (min-width: 767px) {
+    margin-top: 3em;
+  }
 }
 
 // -----------------------------
@@ -34,20 +49,24 @@ h2 {
 
 // -----------------------------
 h3 {
-  font-size: 1.3em;
+  font-size: 1.5em;
   text-align: center;
 }
 
 // -----------------------------
 h4 {
+  font-size: 1.2em;
+}
 
+h5 {
+  font-size: 1em;
+  margin: 0;
 }
 
 // all other typography setup
 // -----------------------------
 p {
   padding: 0.5em 0;
-  line-height: 1.2em;
 }
 
 // emphasis colors.

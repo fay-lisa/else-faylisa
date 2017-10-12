@@ -2,15 +2,9 @@
   <body class="gaps">
   <?php include("includes/header.html");?>
     <main role="main">
-      <section>
-        <!-- <h1 aria-label="Page Title">Bridging Gaps</h1> -->
+      <section class="narrow-box">
+        <h1 class="page-title" aria-label="Page Title">Bridging Gaps</h1>
 
-        <div class="left-gap">
-          left
-        </div>
-        <div class="right-gap">
-          right
-        </div>
       </section>
     </main>
   <?php include("includes/footer.html");?>

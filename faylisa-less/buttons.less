@@ -8,14 +8,13 @@ a {
 }
 
 .primary-button {
-  //display: block;
+  display: block;
   color: @body-secondary-txt;
   padding: 1em;
   text-align: center;
   text-transform: uppercase;
   transition: all 300ms ease-in-out;
-
-
+  transform: rotate(-1deg); // puts a slight skew on it.
 
   &.pale-blue {
     background: @pale-blue-emphasis;
@@ -51,6 +50,6 @@ a {
   }
   // for all
   &:hover, &:focus {
-
+    transform: scale(1.1) rotate(0deg);
   }
 }

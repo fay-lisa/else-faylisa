@@ -1,139 +1,237 @@
+
+.home {
+  section {
+    @media all and (min-width: 767px) {
+      flex-direction: row;
+    }
+  }
+  .home-intro {
+    min-height: 100vh;
+    @media all and (min-width: 769px) {
+      flex-direction: row;
+    }
+  }
+
+}
 /* ----- animation container. ----- */
-.block-animation {
-  font-family:'Slabo 27px', serif;
+.intro-animation {
   font-size: 1.3em;
   font-weight: 300;
-  text-align: center;
-  padding: 4em 0 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 
-  /* ----- now we set up the transparency and animation for individual elements ----- */
-  p, h1 {
-    opacity: 0; // make them all hidden to start with.
-    animation: fadeIn 1s ease-in-out 0s forwards;
-    padding: 0.25em 0;
-  }
-
-  h1 {
-    animation-delay: 2s;
-    font-size: 1.3em;
-    margin: 0;
+  // desktop
+  @media screen and (min-width: 769px) {
+    flex-direction: row;
+    justify-content: center;
   }
 
-  p:nth-of-type(1) {
-    animation-delay: 3.5s;
-  }
-  p:nth-of-type(2) {
-    animation-delay: 5s;
-  }
+  .type {
+
+    @media all and (min-width: 767px) {
+      flex: 0 0 65%;
+    }
+
+    p, h1 {
+      padding: 0.25em 0;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out 0s forwards;
+    }
+
+    h1 {
+      font-family:'Slabo 27px', serif;
+      font-size: 1.5em;
+      margin: 0;
+      animation-delay: 1.5s;
+
+      @media all and (min-width: 414px) {
+        font-size: 1.7em;
+      }
+    }
+
+    p:nth-of-type(1) {
+      animation-delay: 1.8s;
+    }
+
+    p:nth-of-type(2) {
+      animation-delay: 2s;
+    }
+
+    p:nth-of-type(3) {
+      animation-delay: 2.2s;
+    }
+
 
   /* -----  recolors some of the text ----- */
   .emphasis {
     color: @pink-emphasis;
+    font-family:'Slabo 27px', serif;
   }
 }
 
-/* ----- sets up the calls to action ----- */
-.home-cta {
-  .flex-parent;
-  flex-direction: row;
-  flex-wrap: wrap; // to make Imum wrap on mobile
-  width: 100%;
-
-  @media all and (min-width: 767px) { // for desktop
-    justify-content: center;
-  }
-
-  /* ----- animates the div holding Imum, sets the opacity for all ----- */
-  div {
-    animation: fadeIn 1s ease-in-out 0s forwards;
-    opacity: 0;
-    animation-delay: 0s;
-  }
-
-  /* ----- tells Imum where to be ----- */
   .imum {
-    flex: 0 0 auto;
     order: 2;
-    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.5s forwards;
+    width: 60%;
 
-    /* ----- tells Imum how large to be ----- */
-    img {
-      width: 200px;
-    }
-
-    @media only screen
-    and (min-device-width : 320px)
-    and (max-device-width : 768px) {
-      flex: 1 1 100%;
-    }
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-      order: 1;
+    @media all and (min-width: 769px) {
+        order: 1;
+        width: auto;
     }
   }
+}
 
-  /* ----- now we set up the home page calls to action ----- */
-  .cta-box {
-    border: 1px solid #E3DFD9;
-    padding: 20px;
-    width: 35%;
-    animation-delay: 7.7s;
+  //
+  // .cta-button {
+  //   .primary-button;
+  //   .grey;
+  //    cursor: pointer;
+  //
+  //   @media all and (min-width: 767px) {
+  //     transform: rotate(-1deg); // puts a slight skew on it.
+  //   }
+  //
+  //   &.css a {
+  //     color: @yellow-emphasis;
+  //   }
+  //   &.art a {
+  //     color: @pink-emphasis;
+  //   }
+  //   &.bridge a {
+  //     color: @blue-emphasis;
+  //   }
+  //
+  //   a:hover, a:focus {
+  //     transform: scale(1.1);
+  //   }
+  //
+  //   a:hover, a:focus, a.selected {
+  //     background: @secondary-bkg;
+  //
+  //   }
+  //
+  // }
+  // // description of each box.
+  // .desc {
+  //   animation: fadeIn 1s ease-in-out 0s forwards;
+  //   padding: 12px;
+  //   font-size: 0.8em;
+  //   display: none;
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
+  // }
 
-    // every mobile from smallest to ipad.
-    @media only screen and (min-device-width: 320px) and (max-device-width: 1023px)  {
-      width: 50%;
-      padding: 10px;
+  // grr.
+  // .subtitles {
+  //   background: @black-trans;
+  //   padding: 1em;
+  //   text-align: center;
+  //   text-transform: uppercase;
+  //   display: block;
+  //   //font-size: 3em;
+  //   width: 320px;
+  //
+  //   @media all and (min-width: 767px) {
+  //     transform: rotate(-1deg); // puts a slight skew on it.
+  //   }
+  //
+  //   &.css {
+  //     color: @yellow-emphasis;
+  //   }
+  //   &.art {
+  //     color: @pink-emphasis;
+  //   }
+  //   &.bridge {
+  //     color: @blue-emphasis;
+  //   }
+  // }
+
+  .home-css, .home-art, .home-bridge {
+    margin: 10% 0;
+
+    @media all and (min-width: 1024px) {
+      min-height: 100vh;
+      max-width: 90%;
+      margin: 0 auto;
     }
 
-      &:nth-of-type(1) {
-        font-family: 'Qwigley', cursive;
-        font-size: 65px;
-        order: 2;
-        border-right: 0;
+    @media all and (min-width: 767px) {
+
+      .home-text {
+        flex: 0 0 50%;
       }
+      .imum {
+        flex: 0 0 40%;
+      }
+    }
 
-      &:nth-of-type(2) {
-        font-family:'Slabo 27px', serif;
-        font-size: 35px;
-        order: 2;
-        border-left: 1px solid #E3DFD9;
+    .imum {
+      text-align: center;
+    }
 
+    p {
+      font-size: 19px;
+    }
 
-        @media only screen and (min-device-width: 1023px)  {
-          order: 3;
-          border-left: 0;
-        }
+    h2  {
+      transform: rotate(-1deg); // puts a slight skew on it.
+
+      @media all and (min-width: 769px) {
+        width: 60%;
       }
 
       a {
         display: block;
+        .primary-button;
+        .grey;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // now set up and execute the animation
-        transition: all 0.3s linear;
+      }
 
+      .bridge {
+        color: @blue-emphasis;
         &:hover, &:focus {
-          background: @from;
-          color: white;
-          text-shadow: 0 0 4px rgba(0,0,0,0.5);
+          background: @blue-emphasis;
+          color: @link-text;
         }
       }
 
-      &:last-of-type {
-        a:hover {
-          background: rgba(0,0,0,0.5);
-          color: @blue-emphasis;
+      .css {
+        color: @yellow-emphasis;
+        &:hover, &:focus {
+          background: @yellow-emphasis;
+          color: @link-text;
         }
+      }
+
+      .art {
+        color: @pink-emphasis;
+        &:hover, &:focus {
+          background: @pink-emphasis;
+          color: @alt-link-text;
+        }
+      }
     }
-  }
 }
 
-/* ---------- second section on the home page ---------- */
-.home-details {
+// now we re-order the sections' images and text.
+.home-css, .home-bridge {
+  .imum {
+    order: 2;
 
-  h2 {
-    text-align: center;
+    @media all and (min-width: 769px) {
+      order: 1;
+    }
+  }
+  .home-text {
+    order: 1;
+
+    @media all and (min-width: 767px) {
+      order: 2;
+    }
   }
 }
